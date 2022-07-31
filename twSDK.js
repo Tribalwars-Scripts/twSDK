@@ -33,9 +33,9 @@ if (typeof window.twSDK === 'undefined') {
         worldInfoInterface: '/interface.php?func=get_config',
         unitInfoInterface: '/interface.php?func=get_unit_info',
         buildingInfoInterface: '/interface.php?func=get_building_info',
-        worldDataVillages: 'pt85.tribalwars.com.pt/map/village.txt',
-        worldDataPlayers: 'pt85.tribalwars.com.pt/map/player.txt',
-        worldDataTribes: 'pt85.tribalwars.com.pt/map/ally.txt',
+        worldDataVillages: '/map/village.txt',
+        worldDataPlayers: '/map/player.txt',
+        worldDataTribes: '/map/ally.txt',
         // game constants
         buildingPoints: {
             main: [
