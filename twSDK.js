@@ -1036,8 +1036,8 @@ if (typeof window.twSDK === 'undefined') {
                 };
                 const DATA_URL = DATA_ENTITY_MAP[entity];
 
-                try {
-                    const [response] = await Promise.all([jQuery.ajax(DATA_URL)]);
+                // try {
+                    const response = await jQuery.ajax(DATA_URL);
                     console.log("Check 1")
                     const data = this.csvToArray(response);
 
@@ -1049,9 +1049,9 @@ if (typeof window.twSDK === 'undefined') {
 
                     console.log("Check 4")
                     return data;
-                } catch (error) {
-                    throw Error(`Error fetching ${DATA_URL}`);
-                }
+                // } catch (error) {
+                //     throw Error(`Error fetching ${DATA_URL}`);
+                // }
             };
 
             // decide what to do based on current time and last updated entity time
