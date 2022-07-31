@@ -33,9 +33,9 @@ if (typeof window.twSDK === 'undefined') {
         worldInfoInterface: '/interface.php?func=get_config',
         unitInfoInterface: '/interface.php?func=get_unit_info',
         buildingInfoInterface: '/interface.php?func=get_building_info',
-        worldDataVillages: '/map/village.txt',
-        worldDataPlayers: '/map/player.txt',
-        worldDataTribes: '/map/ally.txt',
+        worldDataVillages: 'map/village.txt',
+        worldDataPlayers: 'map/player.txt',
+        worldDataTribes: 'map/ally.txt',
         // game constants
         buildingPoints: {
             main: [
@@ -1037,10 +1037,17 @@ if (typeof window.twSDK === 'undefined') {
                 const DATA_URL = DATA_ENTITY_MAP[entity];
 
                 try {
-                    const response = await jQuery.ajax(DATA_URL);
+                    const [response] = await Promise.all([jQuery.ajax(DATA_URL)]);
+                    console.log("Check 1")
                     const data = this.csvToArray(response);
+
+                    console.log("Check 2")
                     localStorage.setItem(`${entity}`, JSON.stringify(data));
+
+                    console.log("Check 3")
                     localStorage.setItem(`${entity}_last_updated`, Date.parse(new Date()));
+
+                    console.log("Check 4")
                     return data;
                 } catch (error) {
                     throw Error(`Error fetching ${DATA_URL}`);
